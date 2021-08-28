@@ -8,12 +8,13 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /root/data/nginx/default.conf:/etc/nginx/conf.d/default.conf
-      - /root/data/nginx/backend-not-found.html:/var/www/html/backend-not-found.html
-      - /root/data/nginx/includes/:/etc/nginx/includes/
-      - /root/data/nginx/ssl/:/etc/ssl/certs/nginx/
-      - /etc/letsencrypt/:/etc/letsencrypt/
-      - /root/data/nginx/log/:/var/log/nginx/
+      - ${PWD}/default.conf:/etc/nginx/conf.d/default.conf
+      - ${PWD}/files:/var/www/html/files
+      - ${PWD}/backend-not-found.html:/var/www/html/backend-not-found.html
+      - ${PWD}/includes/:/etc/nginx/includes/
+      - ${PWD}/ssl/:/etc/ssl/certs/nginx/
+      - ${PWD}/letsencrypt/:/etc/letsencrypt/
+      - ${PWD}/log/:/var/log/nginx/
     mem_limit: 320M
     mem_reservation: 128M
     cpus: 0.5
